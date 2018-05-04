@@ -25,17 +25,8 @@ class SlackController < ApplicationController
   end
 
   def challenge
-    penguin = PENGUINS.sample
-    challenge = Challenge.offset(rand(Challenge.count)).first
-    render status: 200, json: {
-      text: "Here's a challenge from the #{penguin}!",
-      attachments: [
-        {
-          text: challenge.challenge,
-          footer: "Challenge ID ##{challenge.id} in #{challenge.category.name}"
-        }
-      ]
-    }
+    render status: 200, plain: 'Looking for our best challenges...'
+    new_challenge(params[:response_url])
   end
 
   def test
@@ -102,6 +93,8 @@ class SlackController < ApplicationController
       })
       option_selected = JSON.parse(payload['actions'][0]['value'])
       calculate_results(option_selected['questionnaire'].to_i)
+    when 'challenge'
+      new_challenge(payload['response_url'])
     else
       send_slack_response(payload['response_url'], {
         text: 'Command not recognized!',
@@ -116,6 +109,29 @@ class SlackController < ApplicationController
   end
 
   private
+
+    def new_challenge(callback)
+      penguin = PENGUINS.sample
+      challenge = Challenge.offset(rand(Challenge.count)).first
+      send_slack_response(callback, {
+        text: "Here's a challenge from the #{penguin}!",
+        attachments: [
+          {
+            text: challenge.challenge,
+            footer: "Challenge ID ##{challenge.id} in #{challenge.category.name}",
+            callback_id: 'challenge',
+            actions: [
+              {
+                name: 'challenge',
+                text: 'Nice! Get another one',
+                type: 'button',
+                value: 'new'
+              }
+            ]
+          }
+        ]
+      })
+    end
 
     def start_test(payload)
       user = User.find_or_create_by(slack_id: payload['user']['id']) do |user|

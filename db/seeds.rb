@@ -38,7 +38,7 @@ puts 'Creating questions...'
 # Water use
 puts 'Water use...'
 
-q = Question.create(category_id: 1, question:'My shower (or bath) on a typical day is:')
+q = Question.create(category_id: 1, question:'My shower (or bath) on a typical day is')
 q.options.create(option: 'No shower/bath', value: 0)
 q.options.create(option: 'Short shower 3-4 times a week', value: 25)
 q.options.create(option: 'Short shower once a day', value: 50)
@@ -70,7 +70,7 @@ puts 'Created for Water use'
 # Food
 puts 'Food...'
 
-q = Question.create(category_id: 2, question: 'On a typical day, I eat:')
+q = Question.create(category_id: 2, question: 'On a typical day, I eat')
 q.options.create(option: 'Meat more than once per day', value: 600)
 q.options.create(option: 'Meat once per day', value: 400)
 q.options.create(option: 'Meat a couple times a week', value: 300)
@@ -84,7 +84,7 @@ q.options.create(option: 'About 50%', value: 30)
 q.options.create(option: 'About 30%', value: 45)
 q.options.create(option: 'Almost none', value: 60)
 
-q = Question.create(category_id: 2, question: 'I compost my fruit/veg. scraps and peels:')
+q = Question.create(category_id: 2, question: 'I compost my fruit/veg. scraps and peels')
 q.options.create(option: 'Yes', value: -20)
 q.options.create(option: 'No', value: 60)
 
@@ -111,24 +111,24 @@ q.options.create(option: 'Sometimes', value: 50)
 q.options.create(option: 'Often', value: 100)
 q.options.create(option: 'Always', value: 150)
 
-q = Question.create(category_id: 3, question: 'We dry clothes outdoors or on an indoor rack:')
+q = Question.create(category_id: 3, question: 'We dry clothes outdoors or on an indoor rack')
 q.options.create(option: 'Always', value: -50)
 q.options.create(option: 'Sometimes', value: 20)
 q.options.create(option: 'Never', value: 60)
 
-q = Question.create(category_id: 3, question: 'We use an energy-efficient refrigerator:')
+q = Question.create(category_id: 3, question: 'We use an energy-efficient refrigerator')
 q.options.create(option: 'Yes', value: -50)
 q.options.create(option: 'No', value: 50)
 
-q = Question.create(category_id: 3, question: 'We have a second refrigerator/freezer:')
+q = Question.create(category_id: 3, question: 'We have a second refrigerator/freezer')
 q.options.create(option: 'Yes', value: 100)
 q.options.create(option: 'No', value: 0)
 
-q = Question.create(category_id: 3, question: 'We use 5 or more compact fluorescent or LED light bulbs:')
+q = Question.create(category_id: 3, question: 'We use 5 or more compact fluorescent or LED light bulbs')
 q.options.create(option: 'Yes', value: -50)
 q.options.create(option: 'No', value: 100)
 
-q = Question.create(category_id: 3, question: 'I turn off lights, computer, and television when they’re not in use:')
+q = Question.create(category_id: 3, question: 'I turn off lights, computer, and television when they’re not in use')
 q.options.create(option: 'Yes', value: 0)
 q.options.create(option: 'No', value: 50)
 
@@ -138,7 +138,7 @@ q.options.create(option: 'Air conditioning: home', value: 100)
 q.options.create(option: 'Electric fan', value: -10)
 q.options.create(option: 'Nothing', value: -50)
 
-q = Question.create(category_id: 3, question: 'My clothes washer is:')
+q = Question.create(category_id: 3, question: 'My clothes washer is')
 q.options.create(option: 'Top load', value: 100)
 q.options.create(option: 'Front load', value: 50)
 q.options.create(option: 'Laundromat', value: 25)
@@ -153,20 +153,20 @@ q.options.create(option: 'Public transit', value: 30)
 q.options.create(option: 'Private vehicle; carpool', value: 100)
 q.options.create(option: 'Private vehicle; alone', value: 200)
 
-q = Question.create(category_id: 4, question: 'The time I spend in vehicles on a typical day is:')
+q = Question.create(category_id: 4, question: 'The time I spend in vehicles on a typical day is')
 q.options.create(option: 'No time ', value: 0)
 q.options.create(option: 'Less than half an hour', value: 40)
 q.options.create(option: 'Half an hour to an hour', value: 100)
 q.options.create(option: 'More than one hour', value: 200)
 
-q = Question.create(category_id: 4, question: 'How big is the car in which I travel on a typical day:')
+q = Question.create(category_id: 4, question: 'How big is the car in which I travel on a typical day')
 q.options.create(option: 'No car', value: 0)
 q.options.create(option: 'Motorcycle', value: 100)
 q.options.create(option: 'Small', value: 200)
 q.options.create(option: 'Medium', value: 300)
 q.options.create(option: 'SUV', value: 400)
 
-q = Question.create(category_id: 4, question: 'Number of National flights I take per year:')
+q = Question.create(category_id: 4, question: 'Number of National flights I take per year')
 q.options.create(option: 'No flights', value: 0)
 q.options.create(option: 'One flight', value: 50)
 q.options.create(option: 'Two flights ', value: 100)
@@ -182,16 +182,16 @@ puts 'Created for Transportation'
 
 puts 'Waste...'
 
-q = Question.create(category_id: 5, question: 'All my garbage from today could fit into a:')
+q = Question.create(category_id: 5, question: 'All my garbage from today could fit into a')
 q.options.create(option: 'Shoebox', value: 20)
 q.options.create(option: 'Small garbage can', value: 60)
 q.options.create(option: 'Kitchen garbage can', value: 200)
 q.options.create(option: 'No garbage created today!', value: -50)
 
-q = Question.create(category_id: 5, question: 'I recycle')
-q.options.create(option: 'Paper and carboard', value: -35)
-q.options.create(option: 'Cans and plastic', value: -35)
-q.options.create(option: 'Glass', value: -35)
+q = Question.create(category_id: 5, question: 'From the following categories I recycle: paper, carboard, metal, glass')
+q.options.create(option: 'At least one', value: -35)
+q.options.create(option: 'Two to three', value: -50)
+q.options.create(option: 'All four', value: -80)
 
 q = Question.create(category_id: 5, question: 'I reuse items rather than throw them out')
 q.options.create(option: 'Yes', value: -20)
@@ -216,7 +216,7 @@ q.options.create(option: '10-15', value: 100)
 q.options.create(option: 'More than 15', value: 200)
 q.options.create(option: 'None ', value: 0)
 
-q = Question.create(category_id: 5, question: 'How many of your typical activities are dependent upon electronic devices:')
+q = Question.create(category_id: 5, question: 'How many of your typical activities are dependent upon electronic devices')
 q.options.create(option: 'Very little ', value: 20)
 q.options.create(option: 'Some ', value: 60)
 q.options.create(option: 'A lot ', value: 80)
@@ -231,13 +231,13 @@ q.options.create(option: 'Single house on small lot (city)', value: 20)
 q.options.create(option: 'Townhouse/attached house', value: 0)
 q.options.create(option: 'Apartment/building', value: -20)
 
-q = Question.create(category_id: 6, question: 'Divide number of rooms per person, no baths, by the number of people living at home:')
+q = Question.create(category_id: 6, question: 'Divide number of rooms per person, no baths, by the number of people living at home')
 q.options.create(option: '1 room per person or less', value: -50)
 q.options.create(option: '1-2 rooms per person ', value: 0)
 q.options.create(option: '2-3 rooms per person', value: 100)
 q.options.create(option: 'More than 3 rooms per person', value: 200)
 
-q = Question.create(category_id: 6, question: 'We own a second, or vacation home that is often empty:')
+q = Question.create(category_id: 6, question: 'We own a second, or vacation home that is often empty')
 q.options.create(option: 'Yes', value: 400)
 q.options.create(option: 'We own/use it with others', value: 200)
 q.options.create(option: 'No', value: 0)
@@ -250,19 +250,19 @@ q = Question.create(category_id: 7, question: 'I change my outfit every day and 
 q.options.create(option: 'Yes', value: 80)
 q.options.create(option: 'No', value: 0)
 
-q = Question.create(category_id: 7, question: 'I am wearing clothes that have been mended or fixed:')
+q = Question.create(category_id: 7, question: 'I am wearing clothes that have been mended or fixed')
 q.options.create(option: 'Yes', value: -20)
 q.options.create(option: 'No', value: 0)
 
-q = Question.create(category_id: 7, question: 'One-fourth of my clothes are handmade or secondhand:')
+q = Question.create(category_id: 7, question: 'One-fourth of my clothes are handmade or secondhand')
 q.options.create(option: 'Yes', value: -20)
 q.options.create(option: 'No', value: 0)
 
-q = Question.create(category_id: 7, question: 'Most of my clothes are purchased new each year:')
+q = Question.create(category_id: 7, question: 'Most of my clothes are purchased new each year')
 q.options.create(option: 'Yes', value: 200)
 q.options.create(option: 'No', value: 0)
 
-q = Question.create(category_id: 7, question: 'I give the local thrift stores clothes that I no longer wear:')
+q = Question.create(category_id: 7, question: 'I give the local thrift stores clothes that I no longer wear')
 q.options.create(option: 'Yes', value: -50)
 q.options.create(option: 'No', value: 100)
 

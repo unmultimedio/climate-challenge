@@ -96,6 +96,12 @@ class SlackController < ApplicationController
       option_selected = JSON.parse(payload['actions'][0]['value'])
       save_answer(option_selected, payload['response_url'])
       make_next_question(option_selected['questionnaire'], option_selected['question'])
+    when 'see_results'
+      send_slack_response(payload['response_url'], {
+        text: 'Calculating your results... :dancepeng:'
+      })
+      option_selected = JSON.parse(payload['actions'][0]['value'])
+      calculate_results(option_selected['questionnaire'].to_i)
     else
       send_slack_response(payload['response_url'], {
         text: 'Command not recognized!',
@@ -106,7 +112,7 @@ class SlackController < ApplicationController
   end
 
   def manual
-    offer_results(10)
+    offer_results(5)
   end
 
   private
@@ -147,7 +153,7 @@ class SlackController < ApplicationController
       offer_results(questionnaire.id) unless question
       callback = 'option_selected'
       send_slack_dm({
-        text: "Question ##{question.id}",
+        text: "Question ID ##{question.id}",
         channel: questionnaire.user.slack_id,
         attachments: [
           {
@@ -178,7 +184,7 @@ class SlackController < ApplicationController
         channel: questionnaire.user.slack_id,
         attachments: [
           {
-            text: "You have completed the questionnaire ##{questionnaire.id}",
+            text: "You have completed the Questionnaire ID ##{questionnaire.id}",
             fallback: 'You are unable to see the results now',
             callback_id: 'see_results',
             actions: [
@@ -191,6 +197,21 @@ class SlackController < ApplicationController
                 }.to_json
               }
             ]
+          }
+        ]
+      })
+    end
+
+    def calculate_results(questionnaire_id)
+      questionnaire = Questionnaire.find(questionnaire_id)
+      questionnaire.calculate_results
+      amount_of_earths = (questionnaire.value.to_f / 300.0)
+      send_slack_dm({
+        channel: questionnaire.user.slack_id,
+        text: "Your final result is *#{questionnaire.value}*, so what does that mean?",
+        attachments: [
+          {
+            text: "If everyone lived like you do, we would need #{'%.2f' % amount_of_earths} Earths #{':earth_americas: ' * amount_of_earths.ceil} to sustain the people of the world."
           }
         ]
       })

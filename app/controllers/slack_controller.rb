@@ -35,38 +35,31 @@ class SlackController < ApplicationController
     response_url = params[:response_url]
     HTTP.post(response_url,
       json: {
-        "text": "Would you like to play a game?",
-        "attachments": [
+        text: 'Are you ready to measure your carbon footprint?',
+        attachments: [
           {
-            "text": "Choose a game to play",
-            "fallback": "You are unable to choose a game",
-            "callback_id": "wopr_game",
-            "color": "#3AA3E3",
-            "attachment_type": "default",
-            "actions": [
+            text: '_Please select one option, take into account this test could take about 5 minutes_',
+            fallback: 'You are unable to take the test now',
+            callback_id: 'test_start',
+            color: 'good',
+            actions: [
               {
-                "name": "game",
-                "text": "Chess",
-                "type": "button",
-                "value": "chess"
+                name: 'test_start',
+                text: 'Maybe later',
+                type: 'button',
+                value: 'later'
               },
               {
-                "name": "game",
-                "text": "Falken's Maze",
-                "type": "button",
-                "value": "maze"
-              },
-              {
-                "name": "game",
-                "text": "Thermonuclear War",
-                "style": "danger",
-                "type": "button",
-                "value": "war",
-                "confirm": {
-                  "title": "Are you sure?",
-                  "text": "Wouldn't you prefer a good game of chess?",
-                  "ok_text": "Yes",
-                  "dismiss_text": "No"
+                name: 'test_start',
+                text: 'Let\'s do this!',
+                style: 'primary',
+                type: 'button',
+                value: 'now',
+                confirm: {
+                  title: 'Please, answer with the truth',
+                  text: 'Are you ready?',
+                  ok_text: 'I was born ready!',
+                  dismiss_text: 'No, go back'
                 }
               }
             ]

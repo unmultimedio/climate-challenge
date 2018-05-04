@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :categories
   scope 'slack', controller: :slack do
     post 'help', action: :help, as: :slack_help
     post 'test', action: :test, as: :slack_test

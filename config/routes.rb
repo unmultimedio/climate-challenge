@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     post 'challenge', action: :challenge, as: :slack_challenge
     post 'interactive', action: :interactive, as: :slack_interactive
     post 'interactive_load', action: :interactive_load, as: :slack_interactive_load
+    get 'manual', action: :manual, as: :slack_manual
   end
 
   root to: 'application#home'

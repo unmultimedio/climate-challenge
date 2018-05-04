@@ -6,8 +6,17 @@
 </p>
 
 <p>
+  <strong>Options:</strong>
+  <ul>
+    <% @question.options.each do |option| %>
+      <li><%= option.option %></li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
   <strong>Category:</strong>
-  <%= @question.category %>
+  <%= @question.categor.name %>
 </p>
 
 <%= link_to 'Edit', edit_question_path(@question) %> |

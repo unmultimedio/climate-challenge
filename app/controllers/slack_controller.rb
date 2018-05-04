@@ -10,15 +10,7 @@ class SlackController < ApplicationController
         text: 'Climate challenge help. Here are the *slash commands* you can use.',
         attachments: [
           {
-            text: '*/ch-help* to get this message',
-            color: 'good'
-          },
-          {
-            text: '*/ch-test* to start a new test for yourself',
-            color: 'good'
-          },
-          {
-            text: '*/ch-results* to see the general results',
+            text: "`/penguin-help` to get this message\n`/penguin-test` to start a new test for yourself\n`/penguin-results` to see the general results",
             color: 'good'
           },
           {

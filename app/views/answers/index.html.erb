@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>ID</th>
       <th>User</th>
       <th>Questionnaire</th>
       <th>Category</th>
@@ -18,6 +19,7 @@
   <tbody>
     <% @answers.each do |answer| %>
       <tr>
+        <td><%= answer.id %></td>
         <td><%= answer.user %></td>
         <td><%= answer.questionnaire %></td>
         <td><%= answer.category %></td>

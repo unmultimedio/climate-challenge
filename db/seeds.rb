@@ -16,13 +16,13 @@ puts 'All base new'
 
 # Categories
 puts 'Creating categories...'
-Category.create(id: 1, name: 'Water use', min_score: -70, max_score: 270)
-Category.create(id: 2, name: 'Food', min_score: 130, max_score: 920)
-Category.create(id: 3, name: 'Energy use', min_score: -195, max_score: 710)
-Category.create(id: 4, name: 'Transportation', min_score: 0, max_score: 1300)
-Category.create(id: 5, name: 'Waste', min_score: -180, max_score: 505)
-Category.create(id: 6, name: 'Shelter', min_score: -100, max_score: 650)
-Category.create(id: 7, name: 'Clothing', min_score: -65, max_score: 545)
+Category.create(id: 1, name: 'Water use', min_value: -70, max_value: 270)
+Category.create(id: 2, name: 'Food', min_value: 130, max_value: 920)
+Category.create(id: 3, name: 'Energy use', min_value: -195, max_value: 710)
+Category.create(id: 4, name: 'Transportation', min_value: 0, max_value: 1300)
+Category.create(id: 5, name: 'Waste', min_value: -180, max_value: 505)
+Category.create(id: 6, name: 'Shelter', min_value: -100, max_value: 650)
+Category.create(id: 7, name: 'Clothing', min_value: -65, max_value: 545)
 puts 'Categories created'
 
 # Questions

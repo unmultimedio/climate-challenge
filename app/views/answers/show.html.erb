@@ -2,27 +2,27 @@
 
 <p>
   <strong>User:</strong>
-  <%= @answer.user %>
+  <%= @answer.user.username %>
 </p>
 
 <p>
   <strong>Questionnaire:</strong>
-  <%= @answer.questionnaire %>
+  <%= @answer.questionnaire.id %>
 </p>
 
 <p>
   <strong>Category:</strong>
-  <%= @answer.category %>
-</p>
-
-<p>
-  <strong>Option:</strong>
-  <%= @answer.option %>
+  <%= @answer.category.name %>
 </p>
 
 <p>
   <strong>Question:</strong>
-  <%= @answer.question %>
+  <%= @answer.question.question %>
+</p>
+
+<p>
+  <strong>Option:</strong>
+  <%= @answer.option.option %>
 </p>
 
 <p>

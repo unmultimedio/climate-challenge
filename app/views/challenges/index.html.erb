@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>ID</th>
       <th>Challenge</th>
       <th>Category</th>
       <th colspan="3"></th>
@@ -14,6 +15,7 @@
   <tbody>
     <% @challenges.each do |challenge| %>
       <tr>
+        <td><%= challenge.id %></td>
         <td><%= challenge.challenge %></td>
         <td><%= challenge.category.name %></td>
         <td><%= link_to 'Show', challenge %></td>

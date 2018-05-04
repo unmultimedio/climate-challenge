@@ -9,8 +9,8 @@
       <th>User</th>
       <th>Questionnaire</th>
       <th>Category</th>
-      <th>Option</th>
       <th>Question</th>
+      <th>Option</th>
       <th>Value</th>
       <th colspan="3"></th>
     </tr>
@@ -20,11 +20,11 @@
     <% @answers.each do |answer| %>
       <tr>
         <td><%= answer.id %></td>
-        <td><%= answer.user %></td>
-        <td><%= answer.questionnaire %></td>
-        <td><%= answer.category %></td>
-        <td><%= answer.option %></td>
-        <td><%= answer.question %></td>
+        <td><%= answer.user.username %></td>
+        <td><%= answer.questionnaire.id %></td>
+        <td><%= answer.category.name %></td>
+        <td><%= answer.question.question %></td>
+        <td><%= answer.option.option %></td>
         <td><%= answer.value %></td>
         <td><%= link_to 'Show', answer %></td>
         <td><%= link_to 'Edit', edit_answer_path(answer) %></td>

@@ -5,6 +5,7 @@
 <table>
   <thead>
     <tr>
+      <th>ID</th>
       <th>Option</th>
       <th>Value</th>
       <th>Question</th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @options.each do |option| %>
       <tr>
+        <td><%= option.id %></td>
         <td><%= option.option %></td>
         <td><%= option.value %></td>
         <td><%= option.question.question %></td>

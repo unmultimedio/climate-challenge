@@ -8,10 +8,18 @@
 
 # Destroying base
 puts 'Destroying base'
+Answer.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('answers')
+Questionnaire.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('questionnaires')
 Challenge.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('challenges')
 Option.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('options')
 Question.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('questions')
 Category.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('categories')
 puts 'All base new'
 
 # Categories
@@ -67,10 +75,10 @@ q.options.create(option: 'Meat more than once per day', value: 600)
 q.options.create(option: 'Meat once per day', value: 400)
 q.options.create(option: 'Meat a couple times a week', value: 300)
 q.options.create(option: 'Vegetarian', value: 200)
-
-q = Question.create(category_id: 2, question: 'What percentage of your food is grown locally or is organic?')
 q.options.create(option: 'Vegan', value: 150)
 q.options.create(option: 'All', value: 0)
+
+q = Question.create(category_id: 2, question: 'What percentage of your food is grown locally or is organic?')
 q.options.create(option: 'About 70%', value: 15)
 q.options.create(option: 'About 50%', value: 30)
 q.options.create(option: 'About 30%', value: 45)

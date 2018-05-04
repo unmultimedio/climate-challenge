@@ -12,7 +12,7 @@ class SlackController < ApplicationController
         text: 'Climate challenge help. Here are the *slash commands* you can use.',
         attachments: [
           {
-            text: "`/penguin-help` to get this message\n`/penguin-test` to start a new test for yourself\n`/penguin-results` to see the general results",
+            text: "`/penguin-help` to get this message\n`/penguin-test` to start a new test for yourself, privately via @slackbot\n`/penguin-challenge` to be challenged by the Penguin",
             color: 'good'
           },
           {
@@ -39,7 +39,7 @@ class SlackController < ApplicationController
   end
 
   def test
-    render status: 200, plain: 'ok'
+    render status: 200, plain: 'Ok, please check your private conversation with @slackbot'
     response_url = params[:response_url]
     send_slack_dm({
       text: 'Are you ready to measure your carbon footprint?',
@@ -82,7 +82,16 @@ class SlackController < ApplicationController
     puts payload.to_json
     case payload['actions'][0]['name']
     when 'test_start'
-      start_test(payload)
+      if payload['actions'][0]['value'] == 'now'
+        send_slack_response(payload['response_url'], {
+          text: 'Starting... :dancepeng:'
+        })
+        start_test(payload)
+      else
+        send_slack_response(payload['response_url'], {
+          text: 'Ok, you can start your test anytime using `/penguin-test` :penguin:'
+        })
+      end
     when 'option_selected'
       option_selected = JSON.parse(payload['actions'][0]['value'])
       save_answer(option_selected, payload['response_url'])
